@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account</title>
+</head>
+<style>
+    body {
+        background-color: rgb(72, 156, 156);
+        text-align: center;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    #MainContainer {
+        margin-top: 10vh;
+    }
+
+    #details th {
+        border: 1px solid rgb(12, 55, 63);
+    }
+
+    img {
+        width: 350px;
+        background-color: aquamarine;
+    }
+
+    input {
+        background-color: #fff;
+        height: 40px;
+        width: 300px;
+        border-radius: 12px;
+        border: none;
+        padding: 5px;
+        margin-top: 5px;
+    }
+
+    #data {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+    }
+
+    button {
+        background-color: rgb(15, 97, 70);
+        color: #fff;
+        font-size: 20px;
+        border-radius: 8px;
+        padding: 5px;
+        border: none;
+        outline: none;
+    }
+
+    a {
+        color: rgb(255, 255, 255);
+        font-weight: 200;
+        font-size: 20px;
+        margin-left: 12px;
+    }
+
+    .deposit {
+        background-color: rgb(125, 217, 240);
+    }
+
+    .withdraw {
+        background-color: rgb(238, 135, 109);
+    }
+
+    .hide {
+        display: none;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    #details {
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    #detail {
+        margin-top: 12px;
+        display: flex;
+        justify-content: center;
+
+    }
+</style>
+
+<body>
+    <div id="MainContainer">
+        <img src="./bank.png" alt="">
+
+        <div id="loginContainer">
+            <form onsubmit="Login()" action="">
+                <div id="data">
+                    <input type="text" placeholder="Login ID" id="nam">
+                    <input type="password" name="" id="pass" placeholder="Password">
+                    <div style="margin-top: 12px;">
+                        <button>Login</button>
+                        <a href="#" onclick="GoToSignup()">Create Your Account</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="SignupContainer" class="hide">
+            <form onsubmit="addNewUSER()" action="">
+                <div id="data">
+                    <input type="text" id="newusername" placeholder="Create Login ID">
+                    <input type="password" name="" id="newpass" placeholder="Enter Password">
+                    <div style="margin-top: 12px;">
+                        <button>Signup</button>
+                        <a href="#" onclick="GoToSignin()">Already have an Account</a>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div id="dashboardContainer" class="hide">
+        <h1 style="font-size: 20px; background-color: rgb(47, 112, 112);"> Home </h1>
+        <table id="detail">
+            <tr>
+                <th>Username: </th>
+                <td id="usr"></td>
+
+            </tr>
+            <tr>
+                <th>Balance: </th>
+                <td id="bal">0</td>
+
+            </tr>
+        </table>
+        <h3>My Transactions</h3>
+        <button onclick="Transaction('deposit')">Deposit</button>
+        <button onclick="Transaction('withdraw')">Withdraw</button>
+        <div>
+        <input type="text" onchange="match(this)" placeholder="Search by Amount" id="search">
+        </div>
+        <div id="details">
+            <table id="hide">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Purpose</th>
+
+                    </tr>
+                </thead>
+                <tbody id="addtrans">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="./index.js">
+
+    </script>
+</body>
+
+</html>
